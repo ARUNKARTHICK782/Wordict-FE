@@ -1,0 +1,120 @@
+.container {
+    margin: 25px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.child {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    margin: -25px 0 0 -25px; /* Apply negative top and left margins to truly center the element */
+}
+
+
+.logindiv
+{
+    height: 400px;
+    width: 350px;
+    position: relative;
+    top: 40%;
+    left: 40%;
+}
+
+.searchBoxDiv
+{
+    width: 350px;
+    position: relative;
+    top: 10%;
+    left : 40%;
+}
+
+.meaningDiv
+{
+    width: 600px;
+    margin: 10px;
+    padding: 10px;
+    position: relative;
+    top: 10%;
+    left : 20%;
+}
+
+.wordDiv
+{
+    margin:10px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #e8f5f3;
+}
+
+.loader {
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .modal {
+    display: block; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    height: 300px;
+    border: 1px solid #888;
+    width: 30%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+.c-grid-container
+{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 50px 50px;
+}
+
+.c-grid-item
+{
+  padding:15px;
+  width: 300px;
+  margin: 20px;
+  background-color: #888;
+}
+  
