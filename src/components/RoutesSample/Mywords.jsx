@@ -1,8 +1,11 @@
 import axios from "axios";
 import React,{Component} from "react";
+import Aos from 'aos';
+import "aos/dist/aos.css";
 import apiEP from '../../common/credentials';
 import WordComponent from "../WordComponent";
 import '../RoutesSample/sample.css';
+
 class Mywords extends Component {
     state = { 
         mywords : [],
@@ -10,6 +13,7 @@ class Mywords extends Component {
      } 
     async componentDidMount()
     {
+        Aos.init({duration:2000});
         const token = localStorage.getItem('token');
         let mywords;
         await axios({
@@ -26,7 +30,9 @@ class Mywords extends Component {
     render() { 
         return (
             <div>
-                {(this.state.loading)?<div className="loader"></div>:this.state.mywords.map(e=><WordComponent myword={e}/>)}
+                {(this.state.loading)?<div className="loader"></div>:this.state.mywords.map(e=><div data-aos="fade-up">
+                    <WordComponent myword={e}/>
+                </div>)}
             </div>
         );
     }

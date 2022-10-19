@@ -25,6 +25,7 @@
 .searchBoxDiv
 {
     width: 350px;
+    margin-top: 80px;
     position: relative;
     top: 10%;
     left : 40%;
@@ -32,12 +33,15 @@
 
 .meaningDiv
 {
-    width: 600px;
-    margin: 10px;
+    /* width: 600px; */
+    background-color: #f1f9ff;
+    margin: auto;
+    border-radius: 20px;
     padding: 10px;
+    /* margin-bottom: 10px; */
     position: relative;
     top: 10%;
-    left : 20%;
+    /* left : 20%; */
 }
 
 .wordDiv
@@ -105,16 +109,63 @@
 
 .c-grid-container
 {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  gap: 50px 50px;
+  display:flex;
+  flex-direction: row;
+  margin: 10px;
+  /* grid-template-columns: auto auto auto auto; */
+  /* gap: 50px 50px; */
 }
 
 .c-grid-item
 {
   padding:15px;
+  border-radius: 20px;
   width: 300px;
   margin: 20px;
-  background-color: #888;
+  background-color: rgb(231, 245, 245);
 }
+
+.folderList
+{
+  float: right;
+  /* width: 200px; */
+  border-radius: 10px;
+  background-color: #e5f3f7;
+  box-shadow: 0px 12px 18px -6px rgb(225, 225, 225);
+  /* padding: 10px; */
+  /* margin: 10px; */
+}
+
+.folderName
+{
+  margin: 10px;
+  border-radius: 10px;
+  background-color:#e3eef5; 
+  padding: 10px;
+}
+
+.folderList>:hover{
+  background-color: rgb(253, 253, 253);
+}
+
+/* .folderListDiv{
+  position:absolute;
+} */
+
+
+.outerMeaningDiv{
+  background-color: #f3f9ff;
+  border-radius: 20px;
+  box-shadow: 0px 12px 18px -6px rgb(225, 225, 225);
+  margin-left: 80px;
+  /* padding: 10px; */
+}
+
+.saveToBtn{
+  margin-top: 40px;
+  margin-left: 80px;
+}
+
+
+
   

@@ -1,9 +1,14 @@
 import React,{Component} from "react";
 import '../components/RoutesSample/sample.css';
+
 class WordComponent extends Component {
     state = {  
         meanings : this.props.myword.word_id.meanings
     } 
+    componentDidMount()
+    {   
+       
+    }
     render() { 
         const {myword} = this.props;
         return (

@@ -5,7 +5,7 @@ class Meaning extends Component {
     render() { 
         return (
             <div className="meaningDiv">
-                <h3>{this.props.meaning}</h3>
+                <h4>{this.props.meaning}</h4>
             </div>
         );
     }
