@@ -60,7 +60,6 @@ class App extends Component {
         // <div className='container'>
         // <div className='child'>
         <div> 
-              <NavBar/>
               <Routes>
                 <Route path="/" element={<Login/>}/>
                 <Route path = "signup" element={<Signup/>}/>

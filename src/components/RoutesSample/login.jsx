@@ -6,6 +6,7 @@ import axios from 'axios';
 import './sample.css';
 import ap from '../../common/credentials';
 import userPayloadFormatter from '../../common/userPayloadFormatter';
+import NavBar from '../navbar';
 class Login extends Component {
     
     state = {
@@ -67,7 +68,8 @@ class Login extends Component {
     render() { 
         console.log("hello!!!");
       return (
-        <div className="logindiv">
+        <div>
+            <NavBar/>
             <div className="row">
                 {/* <div className="col">
                 </div> */}
