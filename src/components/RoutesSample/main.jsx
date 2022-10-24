@@ -3,6 +3,7 @@ import './sample.css';
 import {searchWord} from '../../apihandlers';
 import Meaning from '../Meaning';
 import FoldersList from '../FoldersList';
+import {addWordToFolder,getFoldersList} from '../../apihandlers';
 import Aos from 'aos';
 import "aos/dist/aos.css";
 
@@ -10,9 +11,12 @@ class Mainpage extends Component {
     state = { 
         word:"",
         meanings : [],
+        word_id : "",
         selectedFolderId : "",
         showSaveToBtn : false,
         noMeaningFound : false,
+        activeFolder : "",
+        myfolders : []
      } 
 
     componentDidUpdate() {
@@ -22,6 +26,11 @@ class Mainpage extends Component {
         window.addEventListener('popstate', function(event) {
           window.history.pushState(null, document.title, window.location.href);
         });
+    }
+
+    async componentDidMount(){
+        const myfolders = await getFoldersList();
+        this.setState({myfolders});
     }
 
     listenTextChange = (e) =>{
@@ -36,14 +45,14 @@ class Mainpage extends Component {
         //     this.setState({noMeaningFound:true});
         //     return;
         // }
-        this.setState({meanings:meanings,showSaveToBtn:true});
-
+        this.setState({meanings:meanings.meanings,word_id:meanings._id,showSaveToBtn:true});
         // meanings.map(e=>console.log(e));
     }
 
     setSelectedFolderId = (e) =>{
-        console.log("In setSelectedFolderId");
+        // console.log("In setSelectedFolderId");
         console.log(e.target.id);
+        this.setState({selectedFolderId:e.target.id,activeFolder:e.target.id});
         // if(e.target.style.backgroundColor === "red")
         //     e.target.style.backgroundColor = "#ffffff";
         // else
@@ -53,6 +62,11 @@ class Mainpage extends Component {
 
     showFoldersDiv = () =>{
         Aos.init({duration:2000});
+    }
+
+    addWordToFolder = async () =>{
+        const {word_id,selectedFolderId} = this.state;
+        await addWordToFolder(selectedFolderId,word_id);
     }
 
     // leftToRight()
@@ -92,9 +106,10 @@ class Mainpage extends Component {
             ?<div className='row'>
             {(this.state.meanings )
             ?<div className='col-6 outerMeaningDiv'>{this.state.meanings.map(e=><Meaning key={e} meaning = {e}/>)}</div>:null}
-                <div data-aos="fade-left" className='col-5'>
-                    <div  id="folderListDivId" style={{backgroundColor:"red"}}>
-                        <FoldersList  folderFunc={this.setSelectedFolderId} selectedFid={this.state.selectedFolderId}/>
+                <div className='col'></div>
+                <div data-aos="fade-left" className='col-2'>
+                    <div  id="folderListDivId">
+                        <FoldersList  folderFunc={this.setSelectedFolderId} showSaveToBtn={true} myfolders={this.state.myfolders} onsubmit = {this.addWordToFolder} currentActiveFolder={this.state.activeFolder}/>
                     </div>
                 </div>
             </div>
